@@ -35,7 +35,7 @@ class TSPoint {
 
 class TouchScreen {
  public:
-  TouchScreen(uint8_t xp, uint8_t yp, uint8_t xm, uint8_t ym, uint16_t rx);
+  TouchScreen(uint8_t xp, uint8_t yp, uint8_t xm, uint8_t ym, uint16_t rx = 0, uint8_t resolution = 10);
 
   bool isTouching(void);
   uint16_t pressure(void);
@@ -46,7 +46,7 @@ class TouchScreen {
 
 private:
   uint8_t _yp, _ym, _xm, _xp;
-  uint16_t _rxplate;
+  uint16_t _rxplate, _max_adc_val;
 
   volatile RwReg *xp_port, *yp_port, *xm_port, *ym_port;
   RwReg xp_pin, xm_pin, yp_pin, ym_pin;
